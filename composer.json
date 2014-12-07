@@ -1,0 +1,8 @@
+{
+    "name": "blondie101010/Scheduler",
+    "autoload": {
+        "psr-4" : {
+            "Blondie101010\\Scheduler" : "src/"
+        }
+    }
+}
