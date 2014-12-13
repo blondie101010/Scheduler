@@ -1,5 +1,5 @@
 {
-    "name": "Blondie101010/Scheduler",
+    "name": "blondie101010/scheduler",
     "description": "Job Scheduler",
     "authors": [
         {
@@ -9,7 +9,7 @@
     ],
     "autoload": {
         "psr-4" : {
-            "Blondie101010/Scheduler" : "src/"
+            "Scheduler/" : "src/"
         }
     }
 }
