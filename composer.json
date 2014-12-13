@@ -1,8 +1,15 @@
 {
     "name": "blondie101010/Scheduler",
+    "description": "Job Scheduler",
+    "authors": [
+        {
+            "name": "Julie Pelletier",
+            "email": "blondie101010@hotmail.com"
+        }
+    ],
     "autoload": {
         "psr-4" : {
-            "Blondie101010\\Scheduler" : "src/"
+            "blondie101010/Scheduler" : "src/"
         }
     }
 }
