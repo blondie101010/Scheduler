@@ -12,7 +12,7 @@
     },
     "autoload": {
         "psr-4" : {
-            "Blondie101010/Scheduler/" : "src/"
+            "Blondie101010\\Scheduler\\" : "src/"
         }
     }
 }
