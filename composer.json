@@ -1,15 +1,18 @@
 {
     "name": "blondie101010/scheduler",
     "description": "Job Scheduler",
-    "authors": [
-        {
+    "type": "library",
+    "license": "LGPL",
+    "authors": [ {
             "name": "Julie Pelletier",
             "email": "blondie101010@hotmail.com"
-        }
-    ],
+    } ],
+    "require": {
+            "php": ">=5.4.0"
+    },
     "autoload": {
         "psr-4" : {
-            "Scheduler/" : "src/"
+            "Blondie101010/Scheduler/" : "src/"
         }
     }
 }
