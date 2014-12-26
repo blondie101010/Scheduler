@@ -1,6 +1,6 @@
 <?php
 
-namespace Scheduler\;
+namespace \Blondie101010\Scheduler;
 
 class Scheduler
 {
@@ -27,10 +27,10 @@ class Scheduler
      * @param bool  $allowFatal:                                // Allow called jobs to cause the scheduler to abort.  This is not usually needed.
      * @return void
      */
-    public function __construct($pipe, $key = '', $scheduleFile = null, $allowFatal = FALSE)
+    public function __construct($pipe = '', $key = '', $scheduleFile = null, $allowFatal = FALSE)
     {
-        $this->key = $key;
         $this->pipe = $pipe;
+        $this->key = $key;
         $this->scheduleFile = $scheduleFile;
         $this->allowFatal = $allowFatal;
     } // __construct()
@@ -44,7 +44,7 @@ class Scheduler
      * @param mixed $key:   Refer to __construct() for details.
      * @return True on success or false on failure.
      */
-    public function authenticate($key)
+    protected function authenticate($key)
     {
         if ($key === $this->key || is_array($this->key) && in_array($key, $this->key, true)) {
             return true;
@@ -68,20 +68,20 @@ class Scheduler
      * @param array     $options:   Array of the following settings:
      *                                  Name        Default Description
      *                                  ----------- ------- ---------------------------------------------------------------------------------
-     *                                  $key:       ''      Refer to __construct() for details.
-     *                                  $interval:  null    Number of seconds (for 't') or ticks (for 'c').
-     *                                  $cursor:    null    Offset before the job is run.  The cursor is 0 by default which means that the 
+     *                                  key:        ''      Refer to __construct() for details.
+     *                                  interval:   null    Number of seconds (for 't') or ticks (for 'c').
+     *                                  cursor:     null    Offset before the job is run.  The cursor is 0 by default which means that the 
      *                                                      job will run on the first check.  Setting a $cursor for a time based job will 
      *                                                      cause a delay of $cursor * $interval before it gets run the first time.  A 'c' 
      *                                                      based job will not get run immediately unless $this->cursor >= $this->interval.   
-     *                                  $limit:     null    Number of times the job should be run.  Default is unlimited.
-     *                                  $startTime: null    Timestamp of when the job should start being run.
-     *                                  $detach:    false   Should the job be detached (forked) from the current process? 
-     *                                  $secret:    null    Secret that is only required to validate security on update requests.  Since 
+     *                                  limit:      null    Number of times the job should be run.  Default is unlimited.
+     *                                  startTime:  null    Timestamp of when the job should start being run.
+     *                                  detach:     false   Should the job be detached (forked) from the current process? 
+     *                                  secret:     null    Secret that is only required to validate security on update requests.  Since 
      *                                                      update requests can only be done with an id, both always go together.
-     *                                  $id:        null    Id of the request.  This is only used when a change request may be needed.  If 
+     *                                  id:         null    Id of the request.  This is only used when a change request may be needed.  If 
      *                                                      the id is already defined, the job is not scheduled and false is returned.
-     *                                  $fatal:     true    Should an exception be considered fatal or ignored?
+     *                                  fatal:      true    Should an exception be considered fatal or ignored?
      * @return true on job creation or false on error.
      */
     public function scheduleJob(Job $job, $mode, $options = array())
@@ -121,7 +121,25 @@ class Scheduler
 
         return true;
     } // scheduleJob()
+
+
+    /**
+     * Scheduler::run()
+     * 
+     * @return bool true if all jobs were run successfully or false if any error happens
+     */
+    public function run()
+    {
+        $res = true;
+
+        foreach ($this->schedule as $schedule) {
+            $res |= $schedule['sJob']->run();
+        } // foreach
+
+        return $res;
+    } // run()
 } // Scheduler
+
 
 
 

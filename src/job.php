@@ -1,6 +1,6 @@
 <?php
 
-namespace Scheduler\;
+namespace \Blondie101010\Scheduler;
 
 /**
  * Job
