@@ -14,7 +14,7 @@
         "psr-4" : {
             "Blondie101010\\Scheduler\\" : "lib/"
         }
-    }
+    },
     "autoload": {
         "psr-4" : {
             "Blondie101010\\Scheduler\\" : "lib/"
