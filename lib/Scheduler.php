@@ -1,6 +1,6 @@
 <?php
 
-//namespace \Blondie101010\Scheduler;
+namespace Blondie101010\Scheduler;
 
 class Scheduler
 {
@@ -87,7 +87,7 @@ class Scheduler
     public function scheduleJob(Job $job, $mode, $options = array())
     {
         // Set defaults.
-        $defaults = ['key' => '', 'interval' => null, 'limit' => null, 'startTime' => null, 'secret' => null, 'id' => null, 'detach' => false, 'fatal' => true];
+        $defaults = ['key' => '', 'interval' => null, 'cursor' => null, 'limit' => null, 'startTime' => null, 'secret' => null, 'id' => null, 'detach' => false, 'fatal' => true];
         $options = array_merge($defaults, $options);
         
         if (!$this->authenticate($options['key'])) {
