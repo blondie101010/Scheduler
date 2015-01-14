@@ -1,5 +1,5 @@
 {
-    "name": "blondie101010/Scheduler",
+    "name": "blondie101010/scheduler",
     "description": "Job Scheduler",
     "type": "library",
     "license": "LGPL-3.0+",
@@ -9,11 +9,6 @@
     } ],
     "require": {
             "php": ">=5.4.0"
-    },
-    "autoload-dev": {
-        "psr-4" : {
-            "Blondie101010\\Scheduler\\" : "lib/"
-        }
     },
     "autoload": {
         "psr-4" : {
