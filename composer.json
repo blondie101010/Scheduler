@@ -10,6 +10,11 @@
     "require": {
             "php": ">=5.4.0"
     },
+    "autoload-dev": {
+        "psr-4" : {
+            "Blondie101010\\Scheduler\\" : "lib/"
+        }
+    },
     "autoload": {
         "psr-4" : {
             "Blondie101010\\Scheduler\\" : "lib"
