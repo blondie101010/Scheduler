@@ -27,7 +27,7 @@ class MyJob2 implements Blondie101010\Scheduler\Job {
                 $this->count ++;
                 echo "MyJob2 run {$this->count} at " . (time()) . PHP_EOL;
         } // run()
-} // MyJob
+} // MyJob2
 
 $scheduler = new Blondie101010\Scheduler\Scheduler;
 
