@@ -13,6 +13,7 @@ use Blondie101010\Scheduler;
 require "vendor/autoload.php";
 
 class MyJob implements Blondie101010\Scheduler\Job {
+
         private $count = 0;
 
         public function run() {
@@ -22,6 +23,7 @@ class MyJob implements Blondie101010\Scheduler\Job {
 } // MyJob
 
 class MyJob2 implements Blondie101010\Scheduler\Job {
+
         private $count = 0;
 
         public function run() {
@@ -36,6 +38,7 @@ $scheduler->scheduleJob(new MyJob, 't', ['interval' => 2, 'limit' => 8]);
 $scheduler->scheduleJob(new MyJob2, 'c', ['interval' => 4, 'limit' => 5]);
 
 for ($i = 0; $i < 60; $i ++) {  // note that in real life, this would be a high level processing loop
+
         $scheduler->run();
         usleep(250000);         // tick of about 0.25s (not counting processing)
 } // for
