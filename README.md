@@ -6,7 +6,7 @@ PHP job / task scheduler that allows tick (count) or time based scheduling, init
 
 Here is a simple working example to run a job every 2 seconds and another every four ticks with a tick of 0.25s:
 
-<?php
+<code>
 
 use Blondie101010\Scheduler;
 
@@ -42,3 +42,4 @@ for ($i = 0; $i < 60; $i ++) {  // note that in real life, this would be a high 
         $scheduler->run();
         usleep(250000);         // tick of about 0.25s (not counting processing)
 } // for
+</code>
