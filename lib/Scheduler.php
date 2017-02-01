@@ -126,17 +126,17 @@ class Scheduler
     /**
      * Scheduler::run()
      * 
-     * @return bool true if all jobs were run successfully or false if any error happens
+     * @return bool true for backward compatibility.
+     *
+     * @note Set to always return true since the return code is not always available or useful.  Errors should be handled with exceptions or error messages in their output.
      */
     public function run()
     {
-        $res = true;
-
         foreach ($this->schedule as $schedule) {
-            $res |= $schedule['sJob']->run();
+            $schedule['sJob']->run();
         } // foreach
 
-        return $res;
+        return true;
     } // run()
 } // Scheduler
 
